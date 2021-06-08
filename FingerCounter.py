@@ -3,6 +3,7 @@ import time
 import cv2
 # import HandTrackingModule as htm
 import hichemModule as htm
+
 # j'ai du refaire un module sans la fonction de comptage de doight pour le faire fonctionner separement ici
 
 wCam, hCam = 640, 480
