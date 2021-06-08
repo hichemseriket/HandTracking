@@ -5,9 +5,10 @@ import tensorflow as tf
 import mediapipe as mp
 import time
 
+wCam, hCam = 1480, 1200
 
 class handDetector():
-    def __init__(self, mode=False, maxHands=2, detectionCon=0.5, trackCon=0.5):
+    def __init__(self, mode=False, maxHands=4, detectionCon=0.7, trackCon=0.5):
         self.tipIds = [4, 8, 12, 16, 20]
         self.mode = mode
         self.maxHands = maxHands
@@ -89,20 +90,27 @@ def main():
     pTime = 0
     cTime = 0
     cap = cv2.VideoCapture(0)
+    cap.set(3, wCam)
+    cap.set(4, hCam)
     detector = handDetector()
     while True:
         success, img = cap.read()
+        # ici pour detecter les main je l'ai reglé a 4 mains simult
         img = detector.findHands(img)
+        # img = detector.fingersUp()
         lmList = detector.findPosition(img)
-        if len(lmList) != 0:
-            print(lmList[4])
+        # if len(lmList) != 0:
+        #     print(lmList[4])
         cTime = time.time()
         fps = 1 / (cTime - pTime)
         pTime = cTime
 
         cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
         cv2.imshow("image", img)
-        cv2.waitKey(1)
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('q'):
+            break
+
 
 
 if __name__ == "__main__":

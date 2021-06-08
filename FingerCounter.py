@@ -1,7 +1,9 @@
 import os
 import time
 import cv2
-import HandTrackingModule as htm
+# import HandTrackingModule as htm
+import hichemModule as htm
+# j'ai du refaire un module sans la fonction de comptage de doight pour le faire fonctionner separement ici
 
 wCam, hCam = 640, 480
 
@@ -66,4 +68,6 @@ while True:
                 3, (255, 0, 0), 3)
 
     cv2.imshow("Image", img)
-    cv2.waitKey(1)
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('q'):
+        break

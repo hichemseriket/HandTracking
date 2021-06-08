@@ -46,9 +46,11 @@ while True:
             clocX = plocX + (x3 - plocX) / smoothening
             clocY = plocY + (x3 - plocY) / smoothening
             # 7. Move Mouse
-            # autopy.mouse.move(wScr - clocX, hScr - clocY)
+            # autopy.mouse.move(wScr - clocX, hScr)
+            # autopy.mouse.move(wScr, hScr)
             # autopy.mouse.move(clocX, hScr - clocY)
             autopy.mouse.move(wScr - clocX, clocY)
+            # autopy.mouse.move(clocX, hScr - clocY)
             cv2.circle(img, (x1, y1), 15, (255, 0, 255), cv2.FILLED)
             plocX, plocY = clocX, clocY
 
