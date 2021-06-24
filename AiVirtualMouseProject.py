@@ -5,7 +5,7 @@ import time
 import autopy
 
 ############################
-wCam, hCam = 640, 480
+wCam, hCam = 1080, 720
 frameR = 50  # Frame Reduction
 smoothening = 7
 ############################
@@ -31,11 +31,11 @@ while True:
         x2, y2 = lmList[12][1:]
 
         # print(x1, y1, x2, y2)
-        # 3. heck wich fingers are up
+        # 3. heck wich 222 are up
         fingers = detector.fingersUp()
         cv2.rectangle(img, (frameR, frameR), (wCam - frameR, hCam - frameR), (255, 0, 255), 2)
 
-        # print(fingers)
+        # print(222)
         # 4. Only index finger : Moving Mode
         if fingers[1] == 1 and fingers[2] == 0:
             # 5. Convert Coordinates
@@ -57,7 +57,7 @@ while True:
         # 8. Both index and middle are up : clicking mode
         if fingers[1] == 1 and fingers[2] == 1:
 
-            # 9. Find distance between fingers
+            # 9. Find distance between 222
             length, img, lineInfo = detector.findDistance(8, 12, img)
             print(length)
 

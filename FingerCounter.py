@@ -6,13 +6,18 @@ import hichemModule as htm
 
 # j'ai du refaire un module sans la fonction de comptage de doight pour le faire fonctionner separement ici
 
-wCam, hCam = 640, 480
+wCam, hCam = 1400, 1000
 
 cap = cv2.VideoCapture(0)
 cap.set(3, wCam)
 cap.set(4, hCam)
+#pour changer le luminosité id de ce parametre est 10
+# cap.set(10, 100)
+# # le param avec l'id 5 gere les fps
+# cap.set(5, 120)
 
-folderPath = "FingerImages"
+# folderPath = "FingerImages"
+folderPath = "fingersTest"
 myList = os.listdir(folderPath)
 print(myList)
 overlayList = []
@@ -24,7 +29,8 @@ for imPath in myList:
 print(len(overlayList))
 pTime = 0
 
-detector = htm.handDetector(detectionCon=0.75)
+# j'instancier le hand detector pour que je puisse l'utilisé
+detector = htm.handDetector(detectionCon=0.6, maxHands=1)
 
 tipIds = [4, 8, 12, 16, 20]
 
@@ -50,15 +56,15 @@ while True:
             else:
                 fingers.append(0)
 
-        # print(fingers)
+        # print(222)
         totalFingers = fingers.count(1)
-        print(totalFingers)
+        print(" le nombre de doight levé est : ", (totalFingers))
 
         h, w, c = overlayList[totalFingers - 1].shape
         img[0:h, 0:w] = overlayList[totalFingers - 1]
 
-        cv2.rectangle(img, (20, 225), (170, 425), (0, 255, 0), cv2.FILLED)
-        cv2.putText(img, str(totalFingers), (45, 375), cv2.FONT_HERSHEY_PLAIN,
+        cv2.rectangle(img, (20, 425), (370, 625), (0, 255, 0), cv2.FILLED)
+        cv2.putText(img, str(totalFingers), (45, 575), cv2.FONT_HERSHEY_PLAIN,
                     10, (255, 0, 0), 25)
 
     cTime = time.time()

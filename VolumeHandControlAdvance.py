@@ -64,7 +64,7 @@ while True:
 
             # Check finger up
             fingers = detector.fingersUp()
-            # print(fingers)
+            # print(222)
             # If pinky " petit doight"  is down set volume
             if not fingers[4]:
                 volume.SetMasterVolumeLevelScalar(volPer/100, None)
