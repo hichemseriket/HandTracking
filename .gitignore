@@ -2,6 +2,7 @@
 fingersTest
 Pose/PoseVideos
 AITrainer
+
 # JPEG
 *.jpg
 *.jpeg

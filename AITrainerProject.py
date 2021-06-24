@@ -10,6 +10,7 @@ detector = pm.poseDetector()
 while True:
     # success, img = cap.read()
     img = cv2.imread("AITrainer/1.jpg")
+    # quand je mets Fals c'est que je veux plus qu'il dessine les connexion entre les points
     img = detector.findPose(img, False)
     img = cv2.resize(img, (720, 720))
     lmList = detector.findPosition(img, False)
