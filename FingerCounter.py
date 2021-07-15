@@ -6,7 +6,7 @@ import hichemModule as htm
 
 # j'ai du refaire un module sans la fonction de comptage de doight pour le faire fonctionner separement ici
 
-wCam, hCam = 1400, 1000
+wCam, hCam = 980, 720
 
 cap = cv2.VideoCapture(0)
 cap.set(3, wCam)
@@ -63,8 +63,8 @@ while True:
         h, w, c = overlayList[totalFingers - 1].shape
         img[0:h, 0:w] = overlayList[totalFingers - 1]
 
-        cv2.rectangle(img, (20, 425), (370, 625), (0, 255, 0), cv2.FILLED)
-        cv2.putText(img, str(totalFingers), (45, 575), cv2.FONT_HERSHEY_PLAIN,
+        cv2.rectangle(img, (20, 325), (370, 625), (0, 255, 0), cv2.FILLED)
+        cv2.putText(img, str(totalFingers), (45, 475), cv2.FONT_HERSHEY_PLAIN,
                     10, (255, 0, 0), 25)
 
     cTime = time.time()
