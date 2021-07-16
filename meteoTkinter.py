@@ -11,7 +11,7 @@ import requests, json
 def tell_weather():
 
     # ma cle d'API pour openweathermap
-    api_key = "19ffa38ebf4d4104a5280c17858727a6"
+    api_key = "HICHEM_LE_BOSS"
 
     # base_url variable pour stocker l'url
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
