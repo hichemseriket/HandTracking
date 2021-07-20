@@ -6,7 +6,7 @@ import hichemModule as htm
 
 # j'ai du refaire un module sans la fonction de comptage de doight pour le faire fonctionner separement ici
 
-wCam, hCam = 980, 720
+wCam, hCam = 840, 540
 
 cap = cv2.VideoCapture(0)
 cap.set(3, wCam)
