@@ -4,15 +4,22 @@ import time
 import cv2
 import mediapipe as mp
 
+from Face.FaceMeshModule import FaceMeshDetector
+
 mpPose = mp.solutions.pose
 mpDraw = mp.solutions.drawing_utils
 pose = mpPose.Pose()
 
-cap = cv2.VideoCapture('PoseVideos/12.mp4')
+# cap = cv2.VideoCapture('PoseVideos/12.mp4')
+cap = cv2.VideoCapture(0)
+detector = FaceMeshDetector(maxFaces=2)
 
 pTime = 0
 while True:
     success, img = cap.read()
+    # img2, faces = detector.findFaceMesh(img, True)
+    # if len(faces) != 0:
+    #     print(faces[0])
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = pose.process(imgRGB)
     # print(results.pose_landmarks)
@@ -30,6 +37,7 @@ while True:
 
     cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
     cv2.imshow("Hichem", img)
+
 
     key = cv2.waitKey(1) & 0xFF
     if key == ord('q'):

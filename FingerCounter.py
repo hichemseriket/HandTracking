@@ -30,7 +30,7 @@ print(len(overlayList))
 pTime = 0
 
 # j'instancier le hand detector pour que je puisse l'utilisé
-detector = htm.handDetector(detectionCon=0.6, maxHands=1)
+detector = htm.handDetector(detectionCon=0.6, maxHands=4)
 
 tipIds = [4, 8, 12, 16, 20]
 
