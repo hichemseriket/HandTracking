@@ -132,3 +132,5 @@ AITrainer
 *.3dm
 *.max
 
+/FingerImages/
+/fingersTest/
